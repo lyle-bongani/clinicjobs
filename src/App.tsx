@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import OurServices from './pages/OurServices';
+import UkVisaServices from './pages/UkVisaServices';
+import VisaInterviewCoaching from './pages/VisaInterviewCoaching';
+import CVWriting from './pages/CVWriting';
+import ContactUs from './pages/ContactUs';
 import './App.css';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <main className="min-h-screen bg-white">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/our-services" element={<OurServices />} />
+          <Route path="/uk-visa-services" element={<UkVisaServices />} />
+          <Route path="/visa-interview-coaching" element={<VisaInterviewCoaching />} />
+          <Route path="/cv-writing" element={<CVWriting />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+        </Routes>
+      </main>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
