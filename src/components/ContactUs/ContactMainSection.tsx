@@ -41,15 +41,23 @@ const ContactMainSection: React.FC = () => {
           <div className="bg-[#EDEDED] rounded-2xl p-6 md:p-8 w-full max-w-[520px] md:max-w-[560px] lg:max-w-[520px] transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)]">
             <h3 className="text-center text-blue-900 text-xl md:text-2xl font-bold">Get in Touch with Us</h3>
 
-            <form className="mt-9 space-y-7 md:space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input className="bg-white rounded-xl w-full px-4 py-3 placeholder-slate-400 outline-none" placeholder="Input your name" />
-                <input className="bg-white rounded-xl w-full px-4 py-3 placeholder-slate-400 outline-none" placeholder="Input your email" />
-              </div>
-              <input className="bg-white rounded-xl w-full px-4 py-3 placeholder-slate-400 outline-none" placeholder="Subject" />
-              <textarea className="bg-white rounded-xl w-full px-4 py-3 placeholder-slate-400 outline-none h-40 resize-none" placeholder="Submit your message request" />
+            <form action="https://formsubmit.co/admin@edenhealthcarerecruitment.co.uk" method="POST" className="mt-9 space-y-7 md:space-y-8">
+              {/* FormSubmit controls */}
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              {/* Honeypot field to deter bots */}
+              <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+              {/* Optional static subject */}
+              <input type="hidden" name="_subject" value="Website Contact Enquiry" />
 
-              <button type="button" className="inline-flex w-fit items-center justify-center rounded-full bg-blue-900 text-white px-6 py-3 hover:bg-blue-950 mt-2">Send Message</button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input name="name" required className="bg-white rounded-xl w-full px-4 py-3 placeholder-slate-400 outline-none" placeholder="Input your name" />
+                <input name="email" type="email" required className="bg-white rounded-xl w-full px-4 py-3 placeholder-slate-400 outline-none" placeholder="Input your email" />
+              </div>
+              <input name="subject" className="bg-white rounded-xl w-full px-4 py-3 placeholder-slate-400 outline-none" placeholder="Subject" />
+              <textarea name="message" className="bg-white rounded-xl w-full px-4 py-3 placeholder-slate-400 outline-none h-40 resize-none" placeholder="Submit your message request" />
+
+              <button type="submit" className="inline-flex w-fit items-center justify-center rounded-full bg-blue-900 text-white px-6 py-3 hover:bg-blue-950 mt-2">Send Message</button>
             </form>
           </div>
 
@@ -82,8 +90,9 @@ const ContactMainSection: React.FC = () => {
                 Daily 09 am - 06 pm
               </InfoCard>
               <InfoCard icon={<EmailIcon sx={{ fontSize: 40, width: 40, height: 40 }} />} title="Email">
-    info@jordancareersandvisas.co.uk<br/>
-                info@smiconcareersandvisas.co.uk
+                <a href="mailto:admin@edenhealthcarerecruitment.co.uk" className="text-blue-900 hover:underline">
+                  admin@edenhealthcarerecruitment.co.uk
+                </a>
               </InfoCard>
             </div>
 

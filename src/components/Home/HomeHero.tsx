@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const flags = [
   {
@@ -74,6 +74,17 @@ const flags = [
 ];
 
 const HomeHero: React.FC = () => {
+  // Form state carried to Contact page via router state
+  const [fromCountry, setFromCountry] = useState<string>('');
+  const [toCountry, setToCountry] = useState<string>('');
+
+  const [showModal, setShowModal] = useState(false);
+  const [inquiryType, setInquiryType] = useState<'Visa Clinic' | 'Consultation' | ''>('');
+  const openModal = (type: 'Visa Clinic' | 'Consultation') => {
+    setInquiryType(type);
+    setShowModal(true);
+  };
+
   return (
     <section className="w-full py-0 sm:py-12 bg-white">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
@@ -90,9 +101,9 @@ const HomeHero: React.FC = () => {
           </p>
           <form className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mb-5 md:mb-8">
             <div>
-              <label className="block text-sm font-semibold text-slate-800 mb-2">Where am i from?</label>
+              <label className="block text-sm font-semibold text-slate-800 mb-2">Applying from?</label>
               <div className="relative">
-                <select defaultValue="" className="rounded-full pl-4 pr-12 h-12 w-full bg-white text-slate-900 border border-slate-300 shadow-sm hover:border-blue-500 focus:border-blue-600 focus:ring-4 focus:ring-blue-200/60 transition-all duration-200 ease-out appearance-none">
+                <select value={fromCountry} onChange={(e) => setFromCountry(e.target.value)} className="rounded-full pl-4 pr-12 h-12 w-full bg-white text-slate-900 border border-slate-300 shadow-sm hover:border-blue-500 focus:border-blue-600 focus:ring-4 focus:ring-blue-200/60 transition-all duration-200 ease-out appearance-none">
                   <option value="" disabled>Select</option>
                   <option>United Kingdom</option>
                   <option>United States of America (USA)</option>
@@ -105,15 +116,16 @@ const HomeHero: React.FC = () => {
                   <option>Malta</option>
                   <option>Switzerland</option>
                   <option>Luxembourg</option>
+                  <option>Zimbabwe</option>
                   <option>Other Oceanian co</option>
                 </select>
                 <svg className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </div>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-800 mb-2">Where am i going?</label>
+              <label className="block text-sm font-semibold text-slate-800 mb-2">Going to?</label>
               <div className="relative">
-                <select defaultValue="" className="rounded-full pl-4 pr-12 h-12 w-full bg-white text-slate-900 border border-slate-300 shadow-sm hover:border-blue-500 focus:border-blue-600 focus:ring-4 focus:ring-blue-200/60 transition-all duration-200 ease-out appearance-none">
+                <select value={toCountry} onChange={(e) => setToCountry(e.target.value)} className="rounded-full pl-4 pr-12 h-12 w-full bg-white text-slate-900 border border-slate-300 shadow-sm hover:border-blue-500 focus:border-blue-600 focus:ring-4 focus:ring-blue-200/60 transition-all duration-200 ease-out appearance-none">
                   <option value="" disabled>Select</option>
                   <option>United Kingdom</option>
                   <option>United States of America (USA)</option>
@@ -126,6 +138,7 @@ const HomeHero: React.FC = () => {
                   <option>Malta</option>
                   <option>Switzerland</option>
                   <option>Luxembourg</option>
+                  <option>Zimbabwe</option>
                   <option>Other Oceanian co</option>
                 </select>
                 <svg className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -133,9 +146,35 @@ const HomeHero: React.FC = () => {
             </div>
           </form>
           <div className="mt-4 md:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto sm:justify-start">
-            <button className="bg-blue-900 text-white px-6 py-2 rounded-full font-semibold w-full sm:w-auto">Get - Visa Clinic</button>
-            <button className="bg-blue-900 text-white px-6 py-2 rounded-full font-semibold w-full sm:w-auto">Get a Consultation</button>
+            <button onClick={() => openModal('Visa Clinic')} className="bg-blue-900 text-white px-6 py-2 rounded-full font-semibold w-full sm:w-auto text-center" aria-label="Open form: Visa Clinic">Get - Visa Clinic</button>
+            <button onClick={() => openModal('Consultation')} className="bg-blue-900 text-white px-6 py-2 rounded-full font-semibold w-full sm:w-auto text-center" aria-label="Open form: Consultation">Get a Consultation</button>
           </div>
+          {showModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/50" onClick={() => setShowModal(false)} />
+              <div className="relative z-10 w-full max-w-md mx-4 rounded-2xl bg-white p-6 shadow-xl">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-lg font-semibold text-blue-900">Quick Request</h4>
+                  <button onClick={() => setShowModal(false)} aria-label="Close" className="text-slate-600 hover:text-slate-900">✕</button>
+                </div>
+                <p className="text-sm text-slate-600 mb-4">We will contact you at the email you provide.</p>
+                <form action="https://formsubmit.co/admin@edenhealthcarerecruitment.co.uk" method="POST" className="space-y-4">
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+                  <input type="hidden" name="fromCountry" value={fromCountry} />
+                  <input type="hidden" name="toCountry" value={toCountry} />
+                  <input type="hidden" name="inquiryType" value={inquiryType} />
+                  <input type="hidden" name="_subject" value={`${inquiryType ? inquiryType + ' - ' : ''}${fromCountry || ''} to ${toCountry || ''} Request`} />
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1">Your Email</label>
+                    <input name="email" type="email" required className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none" placeholder="you@example.com" />
+                  </div>
+                  <button type="submit" className="w-full rounded-full bg-blue-900 text-white px-6 py-3 hover:bg-blue-950">Send</button>
+                </form>
+              </div>
+            </div>
+          )}
         </div>
         {/* Right: Hero Image & Flags */}
         <div className="flex-1 relative flex items-center justify-center w-full order-1 md:order-2">

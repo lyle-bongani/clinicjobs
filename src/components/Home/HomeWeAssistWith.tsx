@@ -10,7 +10,7 @@ const services = [
 ];
 
 const HomeWeAssistWith: React.FC = () => (
-  <section className="w-full py-12 bg-white">
+  <section id="visa-clinic" className="w-full py-12 bg-white">
     <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-10">
       {/* Left: Image */}
       <div className="flex-1 flex justify-center">

@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 
 const aboutHeading = (
   <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
@@ -34,10 +34,9 @@ const HomeAboutSection: React.FC = () => (
             To be the leading platform for career-driven migration, helping anyone, regardless of background, find the support and resources to thrive abroad. We believe borders shouldn’t block potential.
           </p>
           <div className="flex items-center gap-8 mt-2">
-            <button className="bg-blue-900 text-white rounded-full px-8 py-2 font-semibold text-base shadow">
+            <Link to="/contact-us" className="bg-blue-900 text-white rounded-full px-8 py-2 font-semibold text-base shadow">
               Contact Us
-            </button>
-            <TrackChangesIcon sx={{ fontSize: 44, color: '#fbbf24' }} />
+            </Link>
           </div>
         </div>
       </div>

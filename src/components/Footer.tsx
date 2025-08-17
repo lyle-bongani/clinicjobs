@@ -56,6 +56,11 @@ const Footer: React.FC = () => {
               <br />
               United Kingdom
             </p>
+            <p className="mt-3">
+              <a href="mailto:admin@edenhealthcarerecruitment.co.uk" className="hover:text-white underline underline-offset-4">
+                admin@edenhealthcarerecruitment.co.uk
+              </a>
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -83,18 +88,26 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Newsletter</h3>
             <p className="text-gray-200/90 mb-3">Get exclusive news by signing up to our Newsletter.</p>
-            <div className="flex flex-col gap-3 max-w-sm">
+            <form action="https://formsubmit.co/admin@edenhealthcarerecruitment.co.uk" method="POST" className="flex flex-col gap-3 max-w-sm">
+              {/* FormSubmit controls */}
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+              <input type="hidden" name="_subject" value="Newsletter Signup" />
+              <input type="hidden" name="source" value="Footer Newsletter" />
               <input
+                name="email"
                 type="email"
                 placeholder="Email"
                 aria-label="Email"
+                required
                 className="bg-white rounded-full px-4 py-2 text-gray-700 placeholder-gray-400 outline-none"
               />
-              <button type="button" className="bg-red-600 text-white rounded-full px-5 py-2 inline-flex items-center justify-center gap-2 hover:bg-red-700">
+              <button type="submit" className="bg-red-600 text-white rounded-full px-5 py-2 inline-flex items-center justify-center gap-2 hover:bg-red-700">
                 <MailOutlineIcon fontSize="small" />
                 <span>Sign Up</span>
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -103,7 +116,8 @@ const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="text-center text-gray-200 mt-4">
-          Copyright © 2025, All rights reserved. designed by SpeMedia
+          Copyright © 2025, All rights reserved. designed by{' '}
+          <a href="https://www.spemedia.co.zw/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">SpeMedia</a>
         </div>
       </div>
     </footer>

@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-white pt-16">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
