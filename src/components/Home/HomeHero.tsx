@@ -139,7 +139,7 @@ const HomeHero: React.FC = () => {
         </div>
         {/* Right: Hero Image & Flags */}
         <div className="flex-1 relative flex items-center justify-center w-full order-1 md:order-2">
-          <div className="relative w-full max-w-xs sm:max-w-md md:max-w-none md:w-[520px] h-72 sm:h-96 md:h-[600px]">
+          <div className="relative w-full max-w-xs sm:max-w-md md:max-w-none md:w-[520px] h-[90vh]">
             <div className="rounded-2xl overflow-hidden shadow-lg w-full h-full">
               <img src={process.env.PUBLIC_URL + '/images/pics/home-hero.jpg'} alt="Visa Support" className="w-full h-full object-cover" />
             </div>
