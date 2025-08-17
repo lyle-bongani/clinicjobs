@@ -69,7 +69,6 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><NavLink to="/" className="hover:text-white">Home</NavLink></li>
               <li><NavLink to="/about-us" className="hover:text-white">About Us</NavLink></li>
-              <li><NavLink to="/our-services" className="hover:text-white">Services</NavLink></li>
               <li><NavLink to="/contact-us" className="hover:text-white">Contact Us</NavLink></li>
             </ul>
           </div>

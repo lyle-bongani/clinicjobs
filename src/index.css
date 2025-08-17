@@ -1,6 +1,12 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;body {
+@tailwind utilities;
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
   
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,6 +14,35 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .anim-card {
+    @apply transition-all duration-200 ease-out;
+  }
+  .anim-card-lift {
+    @apply anim-card hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)];
+  }
+  .anim-icon-bump {
+    @apply transition-transform duration-200 group-hover:scale-105;
+  }
+
+  /* Scroll reveal base and variants */
+  .reveal-base {
+    @apply opacity-0 transition-all duration-700 ease-out transform-gpu;
+  }
+  .reveal-show {
+    @apply opacity-100 translate-x-0 translate-y-0;
+  }
+  .reveal-left {
+    @apply -translate-x-6;
+  }
+  .reveal-right {
+    @apply translate-x-6;
+  }
+  .reveal-up {
+    @apply translate-y-6;
+  }
 }
 
 code {

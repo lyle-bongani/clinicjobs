@@ -11,7 +11,7 @@ const aboutHeading = (
 
 const HomeAboutSection: React.FC = () => (
   <section className="w-full py-12 bg-white">
-    <div className="container mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+    <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-8 md:gap-12">
       {/* Left: Main Image */}
       <div className="flex-1 flex justify-center">
         <img src={process.env.PUBLIC_URL + '/images/pics/homeaboutus.jpg'} alt="About Us" className="rounded-2xl w-full max-w-2xl object-cover" />

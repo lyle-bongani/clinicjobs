@@ -1,9 +1,15 @@
 import React from 'react';
+import VisaInterviewHeroSection from '../components/VisaInterviewCoaching/VisaInterviewHeroSection';
+import PackageSection from '../components/VisaInterviewCoaching/PackageSection';
+import BundleSection from '../components/VisaInterviewCoaching/BundleSection';
+import PremiumSection from '../components/VisaInterviewCoaching/PremiumSection';
 
 const VisaInterviewCoaching: React.FC = () => (
-  <div className="container mx-auto py-8">
-    <h1 className="text-3xl font-bold mb-4">Visa Interview Coaching</h1>
-    <p>Prepare for your visa interview with our expert coaching and resources.</p>
+  <div className="bg-white">
+    <VisaInterviewHeroSection />
+    <PackageSection />
+    <BundleSection />
+    <PremiumSection />
   </div>
 );
 
