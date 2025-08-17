@@ -10,10 +10,10 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#AEB1B7] text-gray-200 mt-16">
       <div className="container mx-auto px-4 py-8">
-        {/* Top band: centered logo and right-aligned socials */}
-        <div className="flex items-center justify-between">
-          {/* Left placeholder to perfectly center the logo vs socials width */}
-          <div className="shrink-0" style={{ width: '196px' }} />
+        {/* Top band: centered logo and responsive socials */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+          {/* Left placeholder to perfectly center the logo vs socials width (hide on small) */}
+          <div className="hidden sm:block shrink-0" style={{ width: '196px' }} />
           <div className="flex justify-center flex-1">
             <img
               src={process.env.PUBLIC_URL + '/images/logos/footer-logo.png'}
@@ -21,17 +21,17 @@ const Footer: React.FC = () => {
               className="h-20 w-auto object-contain grayscale"
             />
           </div>
-          <div className="flex items-center gap-3">
-            <button type="button" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white text-red-600 flex items-center justify-center hover:opacity-90">
+          <div className="flex items-center flex-wrap justify-center sm:justify-end gap-2 sm:gap-3">
+            <button type="button" aria-label="Facebook" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-red-600 flex items-center justify-center hover:opacity-90">
               <FacebookIcon fontSize="small" />
             </button>
-            <button type="button" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white text-red-600 flex items-center justify-center hover:opacity-90">
+            <button type="button" aria-label="Instagram" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-red-600 flex items-center justify-center hover:opacity-90">
               <InstagramIcon fontSize="small" />
             </button>
-            <button type="button" aria-label="X" className="w-10 h-10 rounded-full bg-white text-red-600 flex items-center justify-center hover:opacity-90">
+            <button type="button" aria-label="X" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-red-600 flex items-center justify-center hover:opacity-90">
               <XIcon fontSize="small" />
             </button>
-            <button type="button" aria-label="TikTok" className="w-10 h-10 rounded-full bg-white text-red-600 flex items-center justify-center hover:opacity-90">
+            <button type="button" aria-label="TikTok" className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-red-600 flex items-center justify-center hover:opacity-90">
               <MusicNoteIcon fontSize="small" />
             </button>
           </div>
@@ -46,9 +46,15 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Address</h3>
             <p className="text-gray-200/90 leading-relaxed">
-              74 Turton Close WS3 3XY
+              74 Turton Close
               <br />
               Walsall
+              <br />
+              WS3 3XY
+              <br />
+              West Midlands
+              <br />
+              United Kingdom
             </p>
           </div>
 

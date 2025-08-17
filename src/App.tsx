@@ -10,6 +10,7 @@ import CVWriting from './pages/CVWriting';
 import ContactUs from './pages/ContactUs';
 import './App.css';
 import Footer from './components/Footer';
+import FloatingButtons from './components/common/FloatingButtons';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <FloatingButtons />
     </BrowserRouter>
   );
 }

@@ -80,7 +80,7 @@ const HomeHero: React.FC = () => {
         {/* Left: Text & Form */}
         <div className="flex-1 max-w-2xl text-center md:text-left order-2 md:order-1">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-5">
-            <span className="text-red-600">Visa Support Made Simple –<br className='hidden sm:block'/>From Short Trips to</span>
+            <span className="text-red-600">Visa Support Made Simple<br className='hidden sm:block'/>From Short Trips to</span>
             <br/>
             <span className="text-blue-800">Relocation</span>
           </h1>

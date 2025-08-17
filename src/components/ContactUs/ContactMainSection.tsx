@@ -63,11 +63,20 @@ const ContactMainSection: React.FC = () => {
 
             <div className="mt-7 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
               <InfoCard icon={<LocationOnIcon sx={{ fontSize: 40, width: 40, height: 40 }} />} title="Address">
-                <p>14 Goodall Street Walsall West Midlands WS1 1QL, United Kingdom</p>
-                <p className="mt-3">Akwa 2, Unit 16 & 18<br/>Gie Rd, Table Bay, Cape Town, 7440</p>
+                <p>
+                  74 Turton Close<br/>
+                  Walsall<br/>
+                  WS3 3XY<br/>
+                  West Midlands<br/>
+                  United Kingdom
+                </p>
               </InfoCard>
-              <InfoCard icon={<PhoneIcon sx={{ fontSize: 40, width: 40, height: 40 }} />} title="Mobile">
-                +447459381651
+              <InfoCard icon={<PhoneIcon sx={{ fontSize: 40, width: 40, height: 40 }} />} title="Mobile / WhatsApp">
+                <p>
+                  <a href="https://wa.me/447497631651" target="_blank" rel="noopener noreferrer" className="text-blue-900 hover:underline">WhatsApp: +44 7497 631651</a>
+                  <br/>
+                  <a href="tel:+447497631651" className="hover:underline">Call: +44 7497 631651</a>
+                </p>
               </InfoCard>
               <InfoCard icon={<AccessTimeIcon sx={{ fontSize: 40, width: 40, height: 40 }} />} title="Availability">
                 Daily 09 am - 06 pm
